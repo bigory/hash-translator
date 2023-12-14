@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class AuthController {
 
-
     @GetMapping("/auth")
     public ResponseEntity<String> authUser() {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .build();
     }
+
 }

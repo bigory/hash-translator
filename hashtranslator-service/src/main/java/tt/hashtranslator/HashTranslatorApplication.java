@@ -2,11 +2,10 @@ package tt.hashtranslator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import tt.hashtranslator.config.HashTranslatorProperties;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication
-@EnableConfigurationProperties(HashTranslatorProperties.class)
+@ConfigurationPropertiesScan("tt.hashtranslator.config")
 public class HashTranslatorApplication {
 
     public static void main(String[] args) {
