@@ -1,0 +1,16 @@
+server:
+  port: 8099
+
+spring:
+  application:
+    name: hash-translator
+  data:
+    mongodb:
+      uri: mongodb://localhost/hashtranslator
+
+hashtranslator:
+  api:
+    url-auth-service: "http://localhost:8089/api"
+    url-decrypt-service: "https://md5.opiums.eu/api.php"
+
+

@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  users-database:
+    image: postgres:15.3
+    restart: on-failure
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+  authorization-service:
+    build:
+      context: authorization-service
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - users-database
+
+  applications-database:
+    image: mongo:7.0.4
+    restart: on-failure
+    ports:
+      - "27017:27017"
+  hash-translator:
+    build:
+      context: hashtranslator-service
+    restart: on-failure
+    ports:
+      - "8090:8090"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - applications-database

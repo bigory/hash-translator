@@ -1,0 +1,14 @@
+server:
+  port: 8090
+
+spring:
+  config:
+    activate:
+      on-profile: docker
+  data:
+    mongodb:
+      uri: mongodb://applications-database/hashtranslator
+
+hashtranslator:
+    api:
+      url-auth-service: "http://authorization-service:8080/api"
