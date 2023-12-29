@@ -25,8 +25,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(exception.getStatusCode()).body(exception.getMessage());
     }
 
-    @ExceptionHandler({ApplicationNotFoundException.class, IncorrectStructureRequestException.class, IncorrectFormatHashException.class})
-    public ResponseEntity<?> handleRuntimeException(RuntimeException exception) {
+    @ExceptionHandler()
+    public ResponseEntity<?> handleRuntimeException(ApplicationNotFoundException exception) {
         log.error("{}", exception.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Message exception:" + exception.getMessage());
     }
